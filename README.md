@@ -13,9 +13,7 @@ This repository provides an ARM template for automating the deployment of GPT mo
 - [Azure CLI Command](#azure-cli-command)
 
 ## ARM Template - Parameters
-
 This template defines the following parameters that you need to provide when deploying it:
-
 *   **`accounts_name`:** The name of the Azure OpenAI resource. This should be a unique name within your Azure subscription.
 ``` JSON
 "account_name": {
@@ -46,12 +44,50 @@ This template defines the following parameters that you need to provide when dep
 ```
 
 ## ARM Template - Resources
-
 The ARM template defines the following resources:
-
-1.  **`Microsoft.CognitiveServices/accounts` (OpenAI Account):** This resource creates the Azure OpenAI account.  It specifies the SKU (`S0`), kind (`OpenAI`), network access controls (allowing all public network access by default), and the location.
-
-2.  **`Microsoft.CognitiveServices/accounts/deployments` (GPT Model Deployment):** This resource creates the actual GPT model deployment within the OpenAI account. It depends on the account resource and specifies the `gpt-35-turbo` model with version `0125`. The SKU is `GlobalBatch` with a capacity of 250. This configuration is suitable for batch processing and inference.
+*  **`Microsoft.CognitiveServices/accounts`:** This resource creates the Azure OpenAI account.  It specifies the SKU, kind, network access controls and the location.
+``` JSON
+{
+    "type": "Microsoft.CognitiveServices/accounts",
+    "apiVersion": "2024-10-01",
+    "name": "[parameters('account_name')]",
+    "location": "[parameters('account_location')]",
+    "sku": {
+        "name": "S0"
+    },
+    "kind": "OpenAI",
+    "properties": {
+        "networkAcls": {
+            "defaultAction": "Allow",
+            "virtualNetworkRules": [],
+            "ipRules": []
+        },
+        "publicNetworkAccess": "Enabled"
+    }
+}
+```
+*  **`Microsoft.CognitiveServices/accounts/deployments`:** This resource creates the actual GPT model deployment within the OpenAI account. It depends on the account resource and specifies the `gpt-35-turbo` model with version `0125`. The SKU is `GlobalBatch` with a capacity of 250.
+``` JSON
+{
+    "type": "Microsoft.CognitiveServices/accounts/deployments",
+    "apiVersion": "2024-10-01",
+    "name": "[concat(parameters('account_name'), '/', parameters('deployment_name'))]",
+    "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', parameters('account_name'))]"
+    ],
+    "sku": {
+        "name": "GlobalBatch",
+        "capacity": 250
+    },
+    "properties": {
+        "model": {
+            "format": "OpenAI",
+            "name": "gpt-35-turbo",
+            "version": "0125"
+        }
+    }
+}
+```
 
 ## Azure CLI Command
 
