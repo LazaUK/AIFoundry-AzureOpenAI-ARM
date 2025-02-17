@@ -18,15 +18,32 @@ This template defines the following parameters that you need to provide when dep
 
 *   **`accounts_name`:** The name of the Azure OpenAI resource. This should be a unique name within your Azure subscription.
 ``` JSON
-"accounts_name": {
+"account_name": {
     "type": "String",
     "metadata": {
         "description": "The name of Azure OpenAI resource."
     }
 }
 ```
-*   **`accounts_location`:** The Azure region where the OpenAI resource will be created.  While `eastus` is the default, you can specify other supported regions.
+*   **`accounts_location`:** The Azure region where the OpenAI resource will be created.  While `swedencentral` is the default, you can specify other supported regions.
+``` JSON
+"account_location": {
+    "defaultValue": "swedencentral",
+    "type": "String",
+    "metadata": {
+        "description": "The location of Azure OpenAI resource."
+    }
+}
+```
 *   **`deployment_name`:** The name of the Azure OpenAI deployment. This name, combined with the account name, will identify your deployed model.
+``` JSON
+"deployment_name": {
+    "type": "String",
+    "metadata": {
+        "description": "The name of Azure OpenAI deployment."
+    }
+}
+```
 
 ## ARM Template - Resources
 
