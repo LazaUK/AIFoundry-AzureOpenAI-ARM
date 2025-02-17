@@ -8,16 +8,16 @@
                 "description": "The name of Azure OpenAI resource."
             }
         },
-		"account_location": {
+        "account_location": {
             "defaultValue": "swedencentral",
             "type": "String",
-			"metadata": {
+            "metadata": {
                 "description": "The location of Azure OpenAI resource."
             }
         },
-		"deployment_name": {
+        "deployment_name": {
             "type": "String",
-			"metadata": {
+            "metadata": {
                 "description": "The name of Azure OpenAI deployment."
             }
         }
