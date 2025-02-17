@@ -2,7 +2,7 @@
 
 This repository provides an ARM template for automating the deployment of GPT models on Azure AI Foundry.
 
-Azure Resource Manager (ARM) templates are a declarative way to define your infrastructure as code. This allows you to consistently and repeatedly deploy resources, simplifying infrastructure management and enabling Infrastructure as Code (IaC) practices.  Using an ARM template for GPT model deployment ensures consistent configuration, reduces manual steps and makes it easier to manage and replicate your AI environment.
+[Azure Resource Manager (ARM)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) templates are a declarative way to define your infrastructure as code. This allows you to consistently and repeatedly deploy resources, simplifying infrastructure management and enabling Infrastructure as Code (IaC) practices.  Using an ARM template for GPT model deployment ensures consistent configuration, reduces manual steps and makes it easier to manage and replicate your AI environment.
 
 > [!NOTE]
 > Provided ARM template utilises API version **2024-10-01**, described [here](https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/2024-10-01/accounts?pivots=deployment-language-arm-template).
