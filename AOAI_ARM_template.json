@@ -4,7 +4,7 @@
     "parameters": {
         "account_name": {
             "type": "String",
-			"metadata": {
+            "metadata": {
                 "description": "The name of Azure OpenAI resource."
             }
         },
