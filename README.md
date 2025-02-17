@@ -66,7 +66,7 @@ The ARM template defines the following resources:
     }
 }
 ```
-*  **`Microsoft.CognitiveServices/accounts/deployments`:** This resource creates the actual GPT model deployment within the OpenAI account. It depends on the account resource and specifies the `gpt-35-turbo` model with version `0125`. The SKU is `GlobalBatch` with a capacity of 250.
+*  **`Microsoft.CognitiveServices/accounts/deployments`:** This resource creates the actual GPT model deployment within the OpenAI account. It depends on the account resource and specifies the `gpt-35-turbo` model with version `0125`. The SKU is `GlobalBatch` with a capacity of 250K TPM.
 ``` JSON
 {
     "type": "Microsoft.CognitiveServices/accounts/deployments",
