@@ -16,9 +16,17 @@ This repository provides an ARM template for automating the deployment of GPT mo
 
 This template defines the following parameters that you need to provide when deploying it:
 
-*   **`accounts_name` (String):** The name of the Azure OpenAI resource. This should be a unique name within your Azure subscription.
-*   **`accounts_location` (String, default: `eastus`):** The Azure region where the OpenAI resource will be created.  While `eastus` is the default, you can specify other supported regions.
-*   **`deployment_name` (String):** The name of the Azure OpenAI deployment. This name, combined with the account name, will identify your deployed model.
+*   **`accounts_name`:** The name of the Azure OpenAI resource. This should be a unique name within your Azure subscription.
+``` JSON
+"accounts_name": {
+    "type": "String",
+    "metadata": {
+        "description": "The name of Azure OpenAI resource."
+    }
+}
+```
+*   **`accounts_location`:** The Azure region where the OpenAI resource will be created.  While `eastus` is the default, you can specify other supported regions.
+*   **`deployment_name`:** The name of the Azure OpenAI deployment. This name, combined with the account name, will identify your deployed model.
 
 ## ARM Template - Resources
 
