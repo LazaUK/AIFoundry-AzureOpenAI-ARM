@@ -93,8 +93,6 @@ The ARM template defines the following resources:
 
 You can deploy this ARM template using the Azure CLI with the following command:
 
-```azurecli
-az deployment group create \
-  --resource-group <your_resource_group_name> \
-  --template-file <path_to_your_template.json> \
-  --parameters accounts_name=<your_openai_account_name> accounts_location=<your_openai_account_location> deployment_name=<your_deployment_name>
+``` PowerShell
+az deployment group create --resource-group <RESOURCE_GROUP_NAME> --template-file  AOAI_ARM_template.json --parameters account_name=<AZURE_OPENAI_RESOURCE_NAME> account_location=<AZURE_OPENAI_RESOURCE_LOCATION> deployment_name=<AZURE_OPENAI_DEPLOYMENT_NAME>
+```
